@@ -22512,6 +22512,8 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   encrypted: true
 });
 
+__webpack_require__(56);
+
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -58379,6 +58381,22 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */
+/***/ (function(module, exports) {
+
+
+if (Laravel.user) {
+    console.log("App.Models.User." + Laravel.user);
+    Echo.private("App.Models.User." + Laravel.user).notification(function (notification) {
+        console.log(notification);
+    });
+}
 
 /***/ })
 /******/ ]);

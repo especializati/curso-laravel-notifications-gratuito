@@ -23,7 +23,8 @@
             'pusher' => [
                 'key' => config('broadcasting.connections.pusher.key'),
                 'cluster' => config('broadcasting.connections.pusher.options.cluster'),
-            ]
+            ],
+            'user' => auth()->check() ? auth()->user()->id : '',
         ]) !!}
     </script>
 </head>
