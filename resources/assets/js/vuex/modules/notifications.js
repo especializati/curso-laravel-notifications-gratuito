@@ -16,7 +16,11 @@ export default {
 
         MARK_ALL_AS_READ (state) {
             state.items = []
-        }
+        },
+
+        ADD_NOTIFICATION (state, notication) {
+            state.items.unshift(notication)
+        },
     },
 
 

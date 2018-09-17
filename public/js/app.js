@@ -58058,6 +58058,9 @@ var index_esm = {
         },
         MARK_ALL_AS_READ: function MARK_ALL_AS_READ(state) {
             state.items = [];
+        },
+        ADD_NOTIFICATION: function ADD_NOTIFICATION(state, notication) {
+            state.items.unshift(notication);
         }
     },
 
@@ -58388,13 +58391,22 @@ if (false) {
 /* 54 */,
 /* 55 */,
 /* 56 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(40);
+
+
+var typesNotifications = {
+    postCommented: 'App\\Notifications\\PostCommented'
+};
 
 if (Laravel.user) {
-    console.log("App.Models.User." + Laravel.user);
-    Echo.private("App.Models.User." + Laravel.user).notification(function (notification) {
-        console.log(notification);
+    Echo.private('App.Models.User.' + Laravel.user).notification(function (notification) {
+        if (notification.type == typesNotifications.postCommented) {
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].commit('ADD_NOTIFICATION', notification);
+        }
     });
 }
 
